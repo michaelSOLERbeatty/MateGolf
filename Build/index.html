@@ -20,6 +20,10 @@
             maxZoom: 19,
         }).addTo(map);
 
+
+        updateLocation(39.98567,-0.04935);
+
+        
         function updateLocation(lat, lon) {
             map.setView([lat, lon], 15);
             L.marker([lat, lon]).addTo(map);
