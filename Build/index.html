@@ -21,11 +21,12 @@
         var position       = new OpenLayers.LonLat(lon,lat).transform( fromProjection, toProjection);
         var zoom           = 15; 
 
-         var layer = new ol.layer.Vector({
+        
          
         map.addLayer(mapnik);
         map.setCenter(position, zoom );
 
+        var layer = new ol.layer.Vector({
         source: new ol.source.Vector({
         features: [
                new ol.Feature({
