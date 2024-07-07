@@ -11,6 +11,8 @@
     </style>
     <script src="OpenLayers.js"></script>
     <script>
+      var map;    
+      
       function init() {
         map = new OpenLayers.Map("basicMap");
         var mapnik         = new OpenLayers.Layer.OSM();
@@ -21,10 +23,11 @@
 
         map.addLayer(mapnik);
         map.setCenter(position, zoom );
+
+        updateLocation(39.98567, -0.04935);
       }
 
-      updateLocation(39.98567, -0.04935);
-      
+            
       function updateLocation(lat, lon) {
             map.setView([lat, lon], 15);
             L.marker([lat, lon]).addTo(map);
