@@ -11,31 +11,28 @@
     </style>
     <script src="OpenLayers.js"></script>
     <script>
-      var map;    
+      //var map= new OpenLayers.Map("basicMap");;    
       
-      function init() {
+      function init(lat,long) {
         map = new OpenLayers.Map("basicMap");
         var mapnik         = new OpenLayers.Layer.OSM();
         var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
         var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
+        var position       = new OpenLayers.LonLat(lat,lon).transform( fromProjection, toProjection);
         var zoom           = 15; 
 
         map.addLayer(mapnik);
         map.setCenter(position, zoom );
 
-        updateLocation(39.98567, -0.04935);
+       
       }
 
             
-      function updateLocation(lat, lon) {
-            map.setView([lat, lon], 15);
-            L.marker([lat, lon]).addTo(map);
-        }
+   
       
     </script>
   </head>
-  <body onload="init();">
+  <body onload="init(39.98567, -0.04935);">
     <div id="basicMap"></div>
   </body>
 </html>
